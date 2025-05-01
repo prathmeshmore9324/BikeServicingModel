@@ -201,7 +201,7 @@ const Footer = () => {
       {showBackToTop && (
         <button 
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-lg transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 z-50"
+          className="fixed  bottom-0.5 right-6 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-lg transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 z-50"
           aria-label="Back to top"
         >
           <ChevronUp size={20} />
