@@ -4,10 +4,7 @@ import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
-import { Package } from 'lucide-react';
-import Package1  from '../../public/images/packages/Package1.png';
-import Package2 from '../../public/images/packages/Package2.png';
-import Package3  from '../../public/images/packages/Package3.png';
+
 // Sample service categories
 const serviceCategories = [
   { id: 1, name: 'Periodic Services', icon: '🔧' },
@@ -38,7 +35,7 @@ const servicePackages = [
       'Chain Lubrication'
     ],
     recommended: false,
-    image: Package1
+    image: '/images/packages/Package1.png'
   },
   {
     id: 2,
@@ -58,7 +55,7 @@ const servicePackages = [
       'Complete Inspection'
     ],
     recommended: true,
-    image: Package2,
+    image: '/images/packages/Package2.png',
   },
   {
     id: 3,
@@ -78,7 +75,7 @@ const servicePackages = [
       'Battery Health Check'
     ],
     recommended: false,
-    image: Package3,
+    image: '/images/packages/Package3.png',
   }
 ];
 
