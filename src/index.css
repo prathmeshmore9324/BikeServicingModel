@@ -1,0 +1,98 @@
+/* @tailwind directives for Tailwind base, components, and utilities */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Global Styles */
+@layer base {
+  html {
+    @apply text-text scroll-smooth;
+  }
+  
+  body {
+    @apply font-sans bg-background text-base antialiased;
+    line-height: 1.6;
+  }
+  
+  h1 {
+    @apply text-3xl font-bold md:text-4xl lg:text-5xl;
+  }
+  
+  h2 {
+    @apply text-2xl font-bold md:text-3xl lg:text-4xl;
+  }
+  
+  h3 {
+    @apply text-xl font-semibold md:text-2xl lg:text-3xl;
+  }
+  
+  h4 {
+    @apply text-lg font-semibold md:text-xl;
+  }
+  
+  p {
+    @apply mb-4;
+  }
+  
+  a {
+    @apply text-primary hover:text-accent transition-colors duration-200;
+  }
+}
+
+/* Component styles */
+@layer components {
+  .container {
+    @apply px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl;
+  }
+  
+  .btn {
+    @apply inline-flex items-center px-4 py-2 rounded-md font-medium transition-colors duration-200;
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary/90;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-primary hover:bg-secondary/80;
+  }
+  
+  .btn-accent {
+    @apply bg-accent text-white hover:bg-accent/90;
+  }
+  
+  .card {
+    @apply bg-white rounded-lg shadow-md p-4 md:p-6;
+  }
+  
+  .form-input {
+    @apply w-full px-3 py-2 border border-subText rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50;
+  }
+}
+
+/* Responsive utility classes */
+@layer utilities {
+  .responsive-padding {
+    @apply p-4 sm:p-6 md:p-8 lg:p-10;
+  }
+  
+  .responsive-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6;
+  }
+  
+  .responsive-flex {
+    @apply flex flex-col sm:flex-row;
+  }
+
+    /* Add this to prevent gradient bleed */
+    .bg-solid {
+      @apply bg-background !important;
+      background-image: none !important;
+    }
+  
+    /* Optional: Improve text rendering */
+    .text-sharp {
+      -webkit-font-smoothing: auto;
+      -moz-osx-font-smoothing: auto;
+    }
+}
