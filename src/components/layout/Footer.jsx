@@ -6,7 +6,6 @@ const Footer = () => {
 
   // Handle scroll for back to top button
   useEffect(() => {
-    window.scrollTo(0,0)
     const handleScroll = () => {
       if (window.scrollY > 300) {
         setShowBackToTop(true);
@@ -25,13 +24,13 @@ const Footer = () => {
       behavior: 'smooth'
     });
   };
-  
+
   const serviceFeatures = [
     { name: 'Genuine Parts', icon: '/images/banner/genuineParts.png', description: 'Original manufacturer certified parts' },
     { name: 'Warranty', icon: '/images/banner/warranty.png', description: 'Extended warranty options available' },
     { name: 'Affordable', icon: '/images/banner/affordable.png', description: 'Best prices guaranteed' }
   ];
-  
+
   const quickLinks = [
     { name: 'About Us', url: '#' },
     { name: 'Contact', url: '#' },
@@ -48,7 +47,6 @@ const Footer = () => {
     { name: 'Top Industry Resource', icon: <Award size={18} /> },
     { name: 'Excellence in Customer Service', icon: <Award size={18} /> }
   ];
-
 
   return (
     <footer className="bg-gray-900 text-white relative">
@@ -95,15 +93,15 @@ const Footer = () => {
               <div className="space-y-2">
                 <div className="flex items-center">
                   <Mail size={16} className="mr-2 text-gray-400" />
-                  <span className="text-gray-400">contact@motoexplorer.com</span>
+                  <span className="text-gray-400">contact@vegobike.in</span>
                 </div>
                 <div className="flex items-center">
                   <Phone size={16} className="mr-2 text-gray-400" />
-                  <span className="text-gray-400">+1 (555) 123-4567</span>
+                  <span className="text-gray-400">+91 9960480247</span>
                 </div>
                 <div className="flex items-center">
                   <MapPin size={16} className="mr-2 text-gray-400" />
-                  <span className="text-gray-400">123 Bike Street, Engine City</span>
+                  <span className="text-gray-400">Office No. 209, Zen Business Center, near IBMR College, Shankar Kalat Nagar, Wakad, Pune, Pimpri-Chinchwad, Maharashtra 411057</span>
                 </div>
               </div>
             </div>
@@ -121,7 +119,7 @@ const Footer = () => {
                   </li>
                 ))}
               </ul>
-              
+
               {/* Accessibility Statement */}
               <div className="mt-6">
                 <a href="#" className="flex items-center text-gray-400 hover:text-white group">
@@ -152,7 +150,7 @@ const Footer = () => {
                   </div>
                 </a>
               </div>
-              
+
               {/* Awards */}
               <h3 className="text-lg font-bold mb-3">Our Recognition</h3>
               <ul className="space-y-2">
@@ -170,25 +168,25 @@ const Footer = () => {
               <h3 className="text-lg font-bold mb-4">Stay Updated</h3>
               <p className="text-gray-400 mb-4">Subscribe to our newsletter for the latest motorcycle news and offers.</p>
               <div className="flex mb-6">
-                <input 
-                  type="email" 
-                  placeholder="Your email address" 
-                  className="bg-gray-700 px-4 py-2 rounded-l-lg flex-grow focus:outline-none focus:ring-2 focus:ring-blue-500" 
+                <input
+                  type="email"
+                  placeholder="Your email address"
+                  className="bg-gray-700 px-4 py-2 rounded-l-lg flex-grow focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
                 <button className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-r-lg transition-colors">
                   Subscribe
                 </button>
               </div>
-              
-           </div>
+            </div>
           </div>
         </div>
+        <hr className='border-gray-700'></hr>
       </div>
 
       {/* Bottom Footer */}
-      <div className="bg-gray-950 py-4">
+      <div className="bg-gray-900 py-4">
         <div className="container mx-auto px-4 md:px-6 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-500 text-sm mb-2 md:mb-0">© 2025 MotoExplorer. All rights reserved.</p>
+          <p className="text-gray-500 text-sm mb-2 md:mb-0">© 2023  All rights reserved By <b>VE GO BIKE PRIVATE LIMITED</b></p>
           <div className="flex flex-wrap justify-center space-x-4">
             <a href="#" className="text-gray-500 hover:text-gray-300 text-sm">Privacy Policy</a>
             <a href="#" className="text-gray-500 hover:text-gray-300 text-sm">Terms of Service</a>
@@ -199,9 +197,9 @@ const Footer = () => {
 
       {/* Back to Top Button */}
       {showBackToTop && (
-        <button 
+        <button
           onClick={scrollToTop}
-          className="fixed  bottom-0.5 right-6 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-lg transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 z-50"
+          className="fixed bottom-4 right-4 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-lg transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 z-50 hidden md:block"
           aria-label="Back to top"
         >
           <ChevronUp size={20} />

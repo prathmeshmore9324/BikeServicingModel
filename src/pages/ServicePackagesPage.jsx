@@ -1,9 +1,13 @@
-// src/components/pages/ServicePackagesPage.jsx
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
+
+// Import images
+import Package1 from '../../public/images/packages/Package1.png';
+import Package2 from '../../public/images/packages/Package2.png';
+import Package3 from '../../public/images/packages/Package3.png';
 
 // Sample service categories
 const serviceCategories = [
@@ -27,7 +31,7 @@ const servicePackages = [
     features: [
       'Wiper Fluid Replacement',
       'Car Wash',
-      'Engine Oil Replacement', 
+      'Engine Oil Replacement',
       'Battery Water Top Up',
       'Interior Vacuuming (Seat & Carpet)',
       'Air Filter Cleaning',
@@ -35,7 +39,7 @@ const servicePackages = [
       'Chain Lubrication'
     ],
     recommended: false,
-    image: '/images/packages/Package1.png'
+    image: Package1
   },
   {
     id: 2,
@@ -55,7 +59,7 @@ const servicePackages = [
       'Complete Inspection'
     ],
     recommended: true,
-    image: '/images/packages/Package2.png',
+    image: Package2,
   },
   {
     id: 3,
@@ -75,7 +79,7 @@ const servicePackages = [
       'Battery Health Check'
     ],
     recommended: false,
-    image: '/images/packages/Package3.png',
+    image: Package3,
   }
 ];
 
@@ -91,12 +95,12 @@ const ServicePackagesPage = () => {
 
   const handleCheckout = () => {
     // Navigate to checkout page with cart data
-    navigate('/checkout', { 
-      state: { 
+    navigate('/checkout', {
+      state: {
         cartItems: cartItems,
         bikeData: bikeData,
         subtotal: subtotal
-      } 
+      }
     });
   };
 
@@ -111,7 +115,7 @@ const ServicePackagesPage = () => {
   }, [state]);
 
   const toggleCartItem = (item) => {
-    setCartItems(prev => 
+    setCartItems(prev =>
       prev.some(cartItem => cartItem.id === item.id)
         ? prev.filter(cartItem => cartItem.id !== item.id)
         : [...prev, item]
@@ -124,17 +128,17 @@ const ServicePackagesPage = () => {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col pb-20 lg:pb-0"> {/* Added pb-20 for mobile */}
       <Navbar />
-      
+
       <div className="container mx-auto px-4 py-8 flex flex-col lg:flex-row gap-6 flex-grow">
-      <div className="w-full lg:w-2/3">
+        <div className="w-full lg:w-2/3">
           <div className="relative mb-6">
             <div className="flex overflow-x-auto gap-2 pb-2 scrollbar-hide">
               {serviceCategories.map((category) => (
                 <button
                   key={category.id}
                   className={`flex flex-col items-center p-3 min-w-[120px] rounded-lg transition-colors ${
-                    activeCategory === category.name 
-                      ? 'bg-indigo-500 text-white' 
+                    activeCategory === category.name
+                      ? 'bg-indigo-500 text-white'
                       : 'bg-white text-gray-700 hover:bg-gray-100'
                   }`}
                   onClick={() => setActiveCategory(category.name)}
@@ -150,7 +154,7 @@ const ServicePackagesPage = () => {
           <h2 className="text-2xl font-bold mb-6">Scheduled Packages</h2>
           <div className="space-y-6">
             {servicePackages.map((pkg) => (
-              <ServicePackageCard 
+              <ServicePackageCard
                 key={pkg.id}
                 pkg={pkg}
                 isInCart={isInCart}
@@ -159,9 +163,8 @@ const ServicePackagesPage = () => {
             ))}
           </div>
         </div>
-        
-        {/* Cart Section - Now contains both desktop and mobile views */}
-        <CartSection 
+
+        <CartSection
           bikeData={bikeData}
           cartItems={cartItems}
           subtotal={subtotal}
@@ -169,7 +172,7 @@ const ServicePackagesPage = () => {
           handleCheckout={handleCheckout}
         />
       </div>
-      
+
       <Footer />
     </div>
   );
@@ -185,23 +188,23 @@ const ServicePackageCard = ({ pkg, isInCart, toggleCartItem }) => (
     <div className="p-4 md:p-6">
       <div className="flex flex-col md:flex-row gap-4">
         <div className="md:w-1/5">
-          <img 
-            src={pkg.image} 
-            alt={pkg.name} 
+          <img
+            src={pkg.image}
+            alt={pkg.name}
             className="w-full h-auto rounded-lg"
           />
         </div>
-        
+
         <div className="md:w-4/5">
           <div className="flex justify-between items-start mb-2">
             <h3 className="text-xl font-bold">{pkg.name}</h3>
           </div>
-          
+
           <div className="flex items-center gap-4 mb-4 text-sm text-gray-600">
             <span>• {pkg.warranty}</span>
             <span>• {pkg.recommendedInterval}</span>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2">
             {pkg.features.slice(0, 6).map((feature, index) => (
               <div key={index} className="flex items-center gap-2">
@@ -212,19 +215,19 @@ const ServicePackageCard = ({ pkg, isInCart, toggleCartItem }) => (
               </div>
             ))}
           </div>
-          
+
           {pkg.features.length > 6 && (
             <button className="text-accent hover:text-accent/80 text-sm mt-2">
               + {pkg.features.length - 6} more View All
             </button>
           )}
-          
+
           <div className="flex justify-between items-center mt-6">
             <div className="flex items-center gap-2">
               <span className="text-gray-500 line-through">₹{pkg.originalPrice}</span>
               <span className="text-2xl font-bold">₹{pkg.discountedPrice}</span>
             </div>
-            
+
             <button
               className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-colors ${
                 isInCart(pkg.id)
@@ -262,27 +265,27 @@ const CartSection = ({ bikeData, cartItems, subtotal, handleCheckout }) => (
             <h3 className="text-xl font-bold">{bikeData.manufacturer} {bikeData.model}</h3>
             <p className="text-sm text-gray-500">{bikeData.fuelType}</p>
           </div>
-          <img 
-            src={bikeData.image} 
-            alt={`${bikeData.manufacturer} ${bikeData.model}`} 
+          <img
+            src={bikeData.image}
+            alt={`${bikeData.manufacturer} ${bikeData.model}`}
             className="w-24 h-auto"
           />
         </div>
-        
+
         {cartItems.map((item) => (
           <div key={item.id} className="border-b border-gray-200 py-4">
             {/* ... rest of desktop cart items ... */}
           </div>
         ))}
-        
+
         {/* Desktop checkout button */}
         <div className="mt-6">
           <div className="flex justify-between items-center mb-2">
             <h4 className="text-lg font-bold">Subtotal ({cartItems.length} Items)</h4>
             <span className="text-lg font-bold">₹{subtotal}</span>
           </div>
-          <button 
-            className="w-full p-3 bg-indigo-700 text-white font-medium rounded-md hover:bg-indigo-500 transition-colors duration-200" 
+          <button
+            className="w-full p-3 bg-indigo-700 text-white font-medium rounded-md hover:bg-indigo-500 transition-colors duration-200"
             onClick={handleCheckout}
             disabled={cartItems.length === 0}
           >
@@ -301,8 +304,8 @@ const CartSection = ({ bikeData, cartItems, subtotal, handleCheckout }) => (
         </div>
         <button
           className={`px-6 py-3  rounded-lg font-medium ${
-            cartItems.length === 0 
-              ? 'bg-gray-300 cursor-not-allowed' 
+            cartItems.length === 0
+              ? 'bg-gray-300 cursor-not-allowed'
               : 'bg-indigo-700 text-white hover:bg-indigo-600'
           }`}
           onClick={handleCheckout}
